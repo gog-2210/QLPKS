@@ -6,15 +6,7 @@
 package Interface;
 
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 
 public class CungCapDV extends javax.swing.JPanel {
 
