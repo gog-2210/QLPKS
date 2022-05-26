@@ -23,14 +23,14 @@ public class ManHinhChao extends javax.swing.JFrame {
         Start();
     }
     private void Start() {
-            ProgLoading.setStringPainted(true);
-            Timer t = new Timer(8, new ActionListener() {
+            Prld1_158.setStringPainted(true);
+            Timer t_158 = new Timer(8, new ActionListener() {
                 int index = 0;
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     index += 1;
-                    ProgLoading.setValue(index);
+                    Prld1_158.setValue(index);
                     if (index == 100) {
                         ((Timer) e.getSource()).stop();
                         HienThiDangNhap();
@@ -38,7 +38,7 @@ public class ManHinhChao extends javax.swing.JFrame {
                 }
 
             });
-            t.start();
+            t_158.start();
         }
     private void HienThiDangNhap() {
         this.dispose();
@@ -53,30 +53,30 @@ public class ManHinhChao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        ProgLoading = new javax.swing.JProgressBar();
+        lbl1_158 = new javax.swing.JLabel();
+        Prld1_158 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/manhinhchao.jpg"))); // NOI18N
+        lbl1_158.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/manhinhchao.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(lbl1_158)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(ProgLoading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Prld1_158, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(lbl1_158)
                 .addGap(0, 0, 0)
-                .addComponent(ProgLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Prld1_158, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -119,7 +119,7 @@ public class ManHinhChao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar ProgLoading;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar Prld1_158;
+    private javax.swing.JLabel lbl1_158;
     // End of variables declaration//GEN-END:variables
 }
