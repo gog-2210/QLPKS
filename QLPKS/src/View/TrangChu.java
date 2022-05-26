@@ -99,7 +99,7 @@ public class TrangChu extends javax.swing.JFrame {
         spr1_134 = new javax.swing.JSeparator();
         pnlMain_134 = new javax.swing.JPanel();
         pnl2_134 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl3_134 = new javax.swing.JLabel();
         lbl2_134 = new javax.swing.JLabel();
         lbl4_134 = new javax.swing.JLabel();
 
@@ -231,11 +231,11 @@ public class TrangChu extends javax.swing.JFrame {
 
         pnl2_134.setBackground(java.awt.Color.orange);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/closeDen.png"))); // NOI18N
-        jLabel3.setName("thoat"); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl3_134.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/closeDen.png"))); // NOI18N
+        lbl3_134.setName("thoat"); // NOI18N
+        lbl3_134.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lbl3_134MouseClicked(evt);
             }
         });
 
@@ -267,7 +267,7 @@ public class TrangChu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbl4_134)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel3)
+                .addComponent(lbl3_134)
                 .addGap(33, 33, 33))
         );
         pnl2_134Layout.setVerticalGroup(
@@ -278,7 +278,7 @@ public class TrangChu extends javax.swing.JFrame {
                     .addGroup(pnl2_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbl2_134)
                         .addComponent(lbl4_134))
-                    .addComponent(jLabel3))
+                    .addComponent(lbl3_134))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -334,12 +334,12 @@ public class TrangChu extends javax.swing.JFrame {
         pnl.validate();
     }//GEN-LAST:event_btn4_134ActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lbl3_134MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl3_134MouseClicked
         int thoat134 = JOptionPane.showConfirmDialog(this, "bạn chắc chắn muốn thoát ?","", JOptionPane.OK_CANCEL_OPTION);
         if (thoat134 == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lbl3_134MouseClicked
 
     private void btn5_134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5_134ActionPerformed
         pnl = new ThanhToan();
@@ -433,10 +433,10 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JButton btn3_134;
     private javax.swing.JButton btn4_134;
     private javax.swing.JButton btn5_134;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl1_134;
     private javax.swing.JLabel lbl2_134;
+    private javax.swing.JLabel lbl3_134;
     private javax.swing.JLabel lbl4_134;
     private javax.swing.JPanel pnl2_134;
     private javax.swing.JPanel pnl3_134;
