@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Java/QLPKS/src/Interface/TrangChu.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/DichVu.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/DatPhong.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/LoaiPhong.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/KhachHang.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/CungCapDV.java</file>
-            <file>file:/D:/Java/QLPKS/src/Interface/Phong.java</file>
+            <file>file:/D:/Java/QLPKS/src/View/TrangChu.java</file>
+            <file>file:/D:/Java/QLPKS/src/View/ManHinhChao.java</file>
+            <file>file:/D:/Java/QLPKS/src/View/FormLogin.java</file>
         </group>
     </open-files>
 </project-private>
