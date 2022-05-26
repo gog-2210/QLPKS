@@ -28,7 +28,7 @@ public class Phong extends javax.swing.JPanel {
 
         scrpnl1_129 = new javax.swing.JScrollPane();
         pnl = new javax.swing.JPanel();
-        jPanel1_129 = new javax.swing.JPanel();
+        pnl1_129 = new javax.swing.JPanel();
         jLabel1_129 = new javax.swing.JLabel();
         jPanel2_129 = new javax.swing.JPanel();
         jLabel2_129 = new javax.swing.JLabel();
@@ -84,23 +84,23 @@ public class Phong extends javax.swing.JPanel {
 
         pnl.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1_129.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1_129.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1_129.setPreferredSize(new java.awt.Dimension(150, 150));
+        pnl1_129.setBackground(new java.awt.Color(153, 153, 255));
+        pnl1_129.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnl1_129.setPreferredSize(new java.awt.Dimension(150, 150));
 
         jLabel1_129.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1_129.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1_129.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1_129.setText("P.100");
 
-        javax.swing.GroupLayout jPanel1_129Layout = new javax.swing.GroupLayout(jPanel1_129);
-        jPanel1_129.setLayout(jPanel1_129Layout);
-        jPanel1_129Layout.setHorizontalGroup(
-            jPanel1_129Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnl1_129Layout = new javax.swing.GroupLayout(pnl1_129);
+        pnl1_129.setLayout(pnl1_129Layout);
+        pnl1_129Layout.setHorizontalGroup(
+            pnl1_129Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1_129, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
         );
-        jPanel1_129Layout.setVerticalGroup(
-            jPanel1_129Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnl1_129Layout.setVerticalGroup(
+            pnl1_129Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1_129, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
         );
 
@@ -452,7 +452,7 @@ public class Phong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlLayout.createSequentialGroup()
-                        .addComponent(jPanel1_129, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnl1_129, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2_129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -495,7 +495,7 @@ public class Phong extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1_129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnl1_129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel4_129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3_129, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -750,7 +750,6 @@ public class Phong extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel17_129;
     private javax.swing.JPanel jPanel18_129;
     private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel1_129;
     private javax.swing.JPanel jPanel2_129;
     private javax.swing.JPanel jPanel3_129;
     private javax.swing.JPanel jPanel4_129;
@@ -763,6 +762,7 @@ public class Phong extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1_129;
     private javax.swing.JLabel lbl_129;
     private javax.swing.JPanel pnl;
+    private javax.swing.JPanel pnl1_129;
     private javax.swing.JPanel pnl2_129;
     private javax.swing.JRadioButton rab1_129;
     private javax.swing.JRadioButton rab2_129;
