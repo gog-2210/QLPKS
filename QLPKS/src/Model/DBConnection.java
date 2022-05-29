@@ -12,7 +12,7 @@ public class DBConnection {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
             try {
-                return DriverManager.getConnection("jdbc:sqlserver://LAPTOP-E2K5JO10\\GUYNIT:1433;databaseName=FormLogin;user=sa;password=guynhuynh123");
+                return DriverManager.getConnection("jdbc:sqlserver://LAPTOP-E2K5JO10\\GUYNIT:1433;databaseName=QLPKS;user=sa;password=guynhuynh123");
             } catch (SQLException ex) {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -22,4 +22,5 @@ public class DBConnection {
         }
         return null;
     }
+
 }
