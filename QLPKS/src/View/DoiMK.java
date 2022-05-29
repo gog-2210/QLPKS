@@ -4,6 +4,15 @@
  */
 package View;
 
+import Model.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author GuynIT
@@ -36,6 +45,7 @@ public class DoiMK extends javax.swing.JFrame {
         txt3_134 = new javax.swing.JTextField();
         btn1_134 = new javax.swing.JButton();
         btn2_134 = new javax.swing.JButton();
+        lbl4_134 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +56,7 @@ public class DoiMK extends javax.swing.JFrame {
         lbl1_134.setText("ĐỔI MẬT KHẨU");
 
         llbl2_134.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        llbl2_134.setText("Mật khẩu cũ:");
+        llbl2_134.setText("Tên tài khoản muốn đổi :");
 
         lbl3_134.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbl3_134.setText("Mật khẩu mới:");
@@ -67,42 +77,46 @@ public class DoiMK extends javax.swing.JFrame {
             }
         });
 
-        btn2_134.setText("Huỷ");
+        btn2_134.setText("Quay lại");
         btn2_134.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2_134ActionPerformed(evt);
             }
         });
 
+        lbl4_134.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl4_134.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout pnl1_134Layout = new javax.swing.GroupLayout(pnl1_134);
         pnl1_134.setLayout(pnl1_134Layout);
         pnl1_134Layout.setHorizontalGroup(
             pnl1_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1_134Layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
+                .addGap(105, 105, 105)
                 .addComponent(lbl1_134)
-                .addGap(93, 93, 93))
-            .addGroup(pnl1_134Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(pnl1_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1_134Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl1_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txt1_134)
                     .addGroup(pnl1_134Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(btn2_134, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt3_134, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt2_134, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(lbl3_134)
-                    .addComponent(llbl2_134))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn2_134))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl3_134, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(llbl2_134, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt2_134, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt3_134)
+                    .addComponent(lbl4_134, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79))
         );
         pnl1_134Layout.setVerticalGroup(
             pnl1_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1_134Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl1_134)
-                .addGap(68, 68, 68)
+                .addGap(27, 27, 27)
                 .addComponent(llbl2_134)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,11 +128,13 @@ public class DoiMK extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt3_134, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl4_134, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(pnl1_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn2_134, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                .addGap(83, 83, 83))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,7 +155,41 @@ public class DoiMK extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn1_134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_134ActionPerformed
-        // TODO add your handling code here:
+        if(txt1_134.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng điền tên tài khoản muốn đổi!");
+        //thông báo nếu password trống    
+        }else if(txt2_134.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng điền mật khẩu mới!");
+        }else if(txt3_134.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập lại mật khẩu mới!");    
+        }
+        else{
+                String txt1 =txt3_134.getText();
+                String txt2 =txt2_134.getText();
+                if(!txt1.equals(txt2)) lbl4_134.setText("Nhập lại mật khẩu chưa trùng khớp");
+                else{
+                    try {
+                        Connection conn = DBConnection.getConnection();
+                        String sql = "UPDATE TAIKHOAN SET MATKHAU=? WHERE TENTK=?";
+                        PreparedStatement pr = conn.prepareStatement(sql);
+                        pr.setString(1,txt2_134.getText());
+                        pr.setString(2,txt1_134.getText());
+                        
+                        int rs = pr.executeUpdate();
+                        if(rs==1)
+                        {
+                            if(txt1.equals(txt2)) lbl4_134.setText("");
+                            JOptionPane.showMessageDialog(this,"Bạn đã Đổi mật khẩu thành công!");
+                        }
+                        else{
+                            if(txt1.equals(txt2)) lbl4_134.setText("");
+                            JOptionPane.showMessageDialog(this,"Bạn đã đổi mật khẩu thất bại!\n\n"+"Có thể tên tài khoản đã không tồn tại!");
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DoiMK.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+        }
     }//GEN-LAST:event_btn1_134ActionPerformed
 
     private void txt2_134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt2_134ActionPerformed
@@ -192,6 +242,7 @@ public class DoiMK extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbl1_134;
     private javax.swing.JLabel lbl3_134;
+    private javax.swing.JLabel lbl4_134;
     private javax.swing.JLabel llbl2_134;
     private javax.swing.JPanel pnl1_134;
     private javax.swing.JTextField txt1_134;

@@ -197,8 +197,8 @@ public class FormLogin extends javax.swing.JFrame {
         }else{
             try {
                 Connection conn = DBConnection.getConnection(); 
-                String sql = "Select * From Account\n" +
-                             "Where tenDangNhap=? AND matKhau=?";
+                String sql = "Select * From TAIKHOAN\n" +
+                             "Where TENTK=? AND MATKHAU=?";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1,txtUser.getText());
                 ps.setString(2,txtPassword.getText());
@@ -261,7 +261,8 @@ public class FormLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormLogin().setVisible(true);
+                new ManHinhChao().setVisible(true);
+                new FormLogin().setVisible(false);
             }
         });
     }

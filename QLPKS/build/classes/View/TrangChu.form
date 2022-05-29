@@ -42,7 +42,7 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pnl2_134" alignment="1" max="32767" attributes="0"/>
-                  <Component id="pnlMain_134" pref="1075" max="32767" attributes="0"/>
+                  <Component id="pnlMain_134" pref="1050" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -52,7 +52,7 @@
           <Group type="102" attributes="0">
               <Component id="pnl2_134" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="pnlMain_134" pref="847" max="32767" attributes="0"/>
+              <Component id="pnlMain_134" pref="864" max="32767" attributes="0"/>
           </Group>
           <Component id="pnl3_134" max="32767" attributes="0"/>
       </Group>
