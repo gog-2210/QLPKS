@@ -5,6 +5,19 @@
  */
 package View;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 
 
@@ -16,8 +29,56 @@ public class DichVu extends javax.swing.JPanel {
 
     public DichVu() {
         initComponents();
+        Connect();
+        CrudTable();
     }
-
+    
+    Connection con;
+    PreparedStatement pst;
+    public void Connect()
+    {
+        String connection = "jdbc:sqlserver://DESKTOP-UALN3DS:1433;DatabaseName=QLPKS;user=sa;password=sa;encrypt=true;trustServerCertificate=true";
+        try {
+            con = DriverManager.getConnection(connection);
+        } catch (SQLException ex) {
+            Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void CrudTable()
+    {
+        try {
+            pst = con.prepareStatement("select * from DICHVU");
+            ResultSet rs = pst.executeQuery();
+            
+            ResultSetMetaData RSM = rs.getMetaData();
+            int c;
+            c = RSM.getColumnCount();
+            
+            DefaultTableModel DF = (DefaultTableModel)tbl_CungCapDV.getModel();
+            
+            DF.setRowCount(0);
+            
+            while(rs.next())
+            {    
+                Vector v2 = new Vector();
+                for(int i=1; i <= c; i++)
+                {
+                    v2.add(rs.getString("MADV"));
+                    v2.add(rs.getString("TENDV"));
+                    v2.add(rs.getString("GIADV"));
+                    v2.add(rs.getString("GHICHU"));
+                }
+                DF.addRow(v2);
+            }
+           
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,13 +89,11 @@ public class DichVu extends javax.swing.JPanel {
     private void initComponents() {
 
         pnl = new javax.swing.JPanel();
-        lbl_MaDV = new javax.swing.JLabel();
         lbl_TenDV = new javax.swing.JLabel();
         lbl_DonGia = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_GhiChu = new javax.swing.JTextArea();
         lbl_GhiChu = new javax.swing.JLabel();
-        txt_MaDV = new javax.swing.JTextField();
         txt_TenDV = new javax.swing.JTextField();
         txt_DonGia = new javax.swing.JTextField();
         pnl_Nut = new javax.swing.JPanel();
@@ -55,9 +114,6 @@ public class DichVu extends javax.swing.JPanel {
         pnl.setBackground(new java.awt.Color(204, 255, 204));
         pnl.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lbl_MaDV.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        lbl_MaDV.setText("Mã dịch vụ ");
-
         lbl_TenDV.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         lbl_TenDV.setText("Tên dịch vụ");
 
@@ -71,19 +127,9 @@ public class DichVu extends javax.swing.JPanel {
         lbl_GhiChu.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         lbl_GhiChu.setText("Ghi chú");
 
-        txt_MaDV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_MaDV.setText("DV");
-        txt_MaDV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_MaDVActionPerformed(evt);
-            }
-        });
-
         txt_TenDV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_TenDV.setText("massage");
 
         txt_DonGia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_DonGia.setText("100000");
         txt_DonGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_DonGiaActionPerformed(evt);
@@ -187,7 +233,7 @@ public class DichVu extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -208,13 +254,11 @@ public class DichVu extends javax.swing.JPanel {
                     .addComponent(jScrollPane1)
                     .addGroup(pnlLayout.createSequentialGroup()
                         .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_MaDV)
                             .addComponent(lbl_TenDV)
                             .addComponent(lbl_DonGia)
                             .addComponent(lbl_GhiChu))
                         .addGap(26, 26, 26)
                         .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_MaDV)
                             .addComponent(txt_TenDV)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLayout.createSequentialGroup()
                                 .addComponent(txt_DonGia, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
@@ -235,14 +279,10 @@ public class DichVu extends javax.swing.JPanel {
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_MaDV, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_MaDV))
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_TenDV)
                     .addComponent(txt_TenDV, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -261,36 +301,15 @@ public class DichVu extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(pnl_Nut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106))
+                .addGap(153, 153, 153))
         );
 
         tbl_CungCapDV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Mã dịch vụ", "Tên dịch vụ", "Đơn giá"
+                "Mã dịch vụ", "Tên dịch vụ", "Đơn giá", "Ghi chú"
             }
         ));
         tbl_CungCapDV.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,29 +334,141 @@ public class DichVu extends javax.swing.JPanel {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_MaDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_MaDVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_MaDVActionPerformed
-
+    private JFrame frame;
+    
     private void btn_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemActionPerformed
+        String TenDV = txt_TenDV.getText();
+        String DonGia = txt_DonGia.getText();
+        String GhiChu = txt_GhiChu.getText();
+        if(txt_TenDV.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng điền tên dịch vụ!");
+        //thông báo nếu password trống    
+        }else if(txt_DonGia.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Vui lòng điền đơn giá!");
+        }else{
+            try {
+                pst = con.prepareStatement("insert into DichVu (TENDV, GIADV, GHICHU)values(?,?,?)");
+                pst.setString(1, TenDV);
+                pst.setString(2, DonGia);
+                pst.setString(3, GhiChu);
+                int k = pst.executeUpdate();
 
+                if(k==1)
+                {
+                    txt_TenDV.setText("");
+                    txt_DonGia.setText("");
+                    txt_GhiChu.setText("");
+                    txt_TenDV.requestFocus();
+                    CrudTable();
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Them dich vu that bai");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btn_ThemActionPerformed
 
     private void tbl_CungCapDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CungCapDVMouseClicked
-
+        DefaultTableModel d1 = (DefaultTableModel)tbl_CungCapDV.getModel();
+        int SelectIndex = tbl_CungCapDV.getSelectedRow();
+        
+        String maDV = d1.getValueAt(SelectIndex, 0).toString();
+ 
+        txt_TenDV.setText(d1.getValueAt(SelectIndex, 1).toString());
+        txt_DonGia.setText(d1.getValueAt(SelectIndex, 2).toString());
+        txt_GhiChu.setText(d1.getValueAt(SelectIndex, 3).toString());
+        btn_Them.setEnabled(false);
     }//GEN-LAST:event_tbl_CungCapDVMouseClicked
 
     private void btn_XoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_XoaActionPerformed
- 
+        DefaultTableModel d1 = (DefaultTableModel)tbl_CungCapDV.getModel();
+        int SelectIndex = tbl_CungCapDV.getSelectedRow();       
+         if(SelectIndex==-1){
+            JOptionPane.showMessageDialog(this, "Vui long cho dich vu muon xoa!!!");
+        }else{
+            try {
+                String maDV = d1.getValueAt(SelectIndex, 0).toString(); 
+                pst = con.prepareStatement("delete from DICHVU where MADV = ? ");
+                pst.setString(1, maDV);
+                int k = pst.executeUpdate();
+
+                if(k==1)
+                {
+                    int xoa =JOptionPane.showConfirmDialog(this, "bạn chắc chắn muốn xóa?","", JOptionPane.OK_CANCEL_OPTION);
+                    if (xoa == JOptionPane.OK_OPTION) {
+                        txt_TenDV.setText("");
+                        txt_DonGia.setText("");
+                        txt_GhiChu.setText("");
+                        txt_TenDV.requestFocus();
+                        CrudTable();
+                        btn_Them.setEnabled(true);
+                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Them dich vu that bai");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btn_XoaActionPerformed
 
     private void btn_SuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SuaActionPerformed
- 
+        DefaultTableModel d1 = (DefaultTableModel)tbl_CungCapDV.getModel();
+        int SelectIndex = tbl_CungCapDV.getSelectedRow();
+
+        if(SelectIndex==-1){
+            JOptionPane.showMessageDialog(this, "Vui long cho dich vu muon sua!!!");
+        }else{   
+            String maDV = d1.getValueAt(SelectIndex,0 ).toString();
+            String TenDV = txt_TenDV.getText();
+            String DonGia = txt_DonGia.getText();
+            String GhiChu = txt_GhiChu.getText();
+
+            try {
+                pst = con.prepareStatement("update DichVu set TENDV=?, GIADV=?, GHICHU=? where MADV = ? ");
+
+                pst.setString(1, TenDV);
+                pst.setString(2, DonGia);
+                pst.setString(3, GhiChu);
+                pst.setString(4, maDV);
+                int k = pst.executeUpdate();
+
+                if(k==1)
+                {
+                    JOptionPane.showMessageDialog(this, "Sua dich vu thanh cong");
+                    txt_TenDV.setText("");
+                    txt_DonGia.setText("");
+                    txt_GhiChu.setText("");
+                    txt_TenDV.requestFocus();
+                    CrudTable();
+                    btn_Them.setEnabled(true);
+
+                }
+                else 
+                {
+                    JOptionPane.showMessageDialog(this, "Them dich vu that bai");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(DichVu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btn_SuaActionPerformed
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-       
+        txt_TenDV.setText("");
+        txt_DonGia.setText("");
+        txt_GhiChu.setText("");
+        txt_TenDV.requestFocus();
+        CrudTable();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void txt_DonGiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_DonGiaKeyReleased
@@ -362,14 +493,12 @@ public class DichVu extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_DonGia;
     private javax.swing.JLabel lbl_GhiChu;
-    private javax.swing.JLabel lbl_MaDV;
     private javax.swing.JLabel lbl_TenDV;
     private javax.swing.JPanel pnl;
     private javax.swing.JPanel pnl_Nut;
     private javax.swing.JTable tbl_CungCapDV;
     private javax.swing.JTextField txt_DonGia;
     private javax.swing.JTextArea txt_GhiChu;
-    private javax.swing.JTextField txt_MaDV;
     private javax.swing.JTextField txt_TenDV;
     // End of variables declaration//GEN-END:variables
 }
