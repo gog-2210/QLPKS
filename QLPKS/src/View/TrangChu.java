@@ -32,12 +32,12 @@ public class TrangChu extends javax.swing.JFrame {
      */
     public TrangChu() {
         initComponents();
-        pnl = new Phong();
+        pnl = new KhachHang();
         pnlMain_134.removeAll();
         pnlMain_134.add(pnl);
         pnl.validate();
         showtime();
-        JButton [] btns = {btn1_134,btn2_134,btn5_134,btn4_134,btn3_134};
+        JButton [] btns = {btn2_134,btn5_134,btn4_134,btn3_134};
         for(JButton btn :btns){
             btn.setBackground(new Color(21,25,28));
             btn.setUI(new BasicButtonUI());
@@ -90,7 +90,6 @@ public class TrangChu extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         pnl3_134 = new javax.swing.JPanel();
-        btn1_134 = new javax.swing.JButton();
         btn2_134 = new javax.swing.JButton();
         btn3_134 = new javax.swing.JButton();
         btn4_134 = new javax.swing.JButton();
@@ -116,19 +115,6 @@ public class TrangChu extends javax.swing.JFrame {
         });
 
         pnl3_134.setBackground(new java.awt.Color(21, 25, 29));
-
-        btn1_134.setBackground(new java.awt.Color(21, 25, 29));
-        btn1_134.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btn1_134.setForeground(new java.awt.Color(255, 255, 255));
-        btn1_134.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bed64px.png"))); // NOI18N
-        btn1_134.setText("Sơ đồ phòng");
-        btn1_134.setBorderPainted(false);
-        btn1_134.setDoubleBuffered(true);
-        btn1_134.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1_134ActionPerformed(evt);
-            }
-        });
 
         btn2_134.setBackground(new java.awt.Color(21, 25, 29));
         btn2_134.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -194,7 +180,6 @@ public class TrangChu extends javax.swing.JFrame {
         pnl3_134.setLayout(pnl3_134Layout);
         pnl3_134Layout.setHorizontalGroup(
             pnl3_134Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn1_134, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn2_134, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
             .addComponent(btn3_134, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn4_134, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -213,9 +198,7 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(lbl1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spr1_134, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
-                .addComponent(btn1_134)
-                .addGap(18, 18, 18)
+                .addGap(246, 246, 246)
                 .addComponent(btn2_134)
                 .addGap(18, 18, 18)
                 .addComponent(btn4_134)
@@ -223,7 +206,7 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(btn3_134)
                 .addGap(18, 18, 18)
                 .addComponent(btn5_134)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         pnlMain_134.setBackground(new java.awt.Color(33, 39, 45));
@@ -319,13 +302,6 @@ public class TrangChu extends javax.swing.JFrame {
         pnlMain_134.add(pnl);
         pnl.validate();
     }//GEN-LAST:event_btn2_134ActionPerformed
-
-    private void btn1_134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_134ActionPerformed
-         pnl = new Phong();
-        pnlMain_134.removeAll();
-        pnlMain_134.add(pnl);
-        pnl.validate();
-    }//GEN-LAST:event_btn1_134ActionPerformed
 
     private void btn4_134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4_134ActionPerformed
         pnl = new DatPhong();
@@ -428,7 +404,6 @@ public class TrangChu extends javax.swing.JFrame {
     #  
     }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn1_134;
     private javax.swing.JButton btn2_134;
     private javax.swing.JButton btn3_134;
     private javax.swing.JButton btn4_134;
